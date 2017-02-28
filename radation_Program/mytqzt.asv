@@ -1,0 +1,8 @@
+function mytqzt(rad,qn,ny)
+tqzt=zeros(3,24,366,ny); %1代表阴，2代表有云，3代表晴
+for i=1:ny
+    for j=1:366
+        kt=rad/qn;
+        if k<=0.28
+            tqzt(:,:,j,i)
+            
