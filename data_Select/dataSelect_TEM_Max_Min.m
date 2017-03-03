@@ -3,7 +3,7 @@
 %%
 clc;clear;
 %var initialization
-selectStationId=58606
+selectStationId=58367
 inputFilePath='..\..\originalData\SURF_CLI_CHN_MUL_DAY-dvd-2\datasets\TEM\';
 inputFileNameHead='SURF_CLI_CHN_MUL_DAY-TEM-12001-';
 outputFilePath='..\..\stationsData\TEM_DAY_MAX_MIN\';

@@ -3,7 +3,7 @@
 %%
 clc;clear;
 %var initialization
-selectStationId=54517
+selectStationId=58367
 inputFilePath='..\..\originalData\SURF_CLI_CHN_MUL_DAY-dvd-6\datasets\WIN\';
 inputFileNameHead='SURF_CLI_CHN_MUL_DAY-WIN-11002-';
 outputFilePath='..\..\stationsData\WIND_DAY\';

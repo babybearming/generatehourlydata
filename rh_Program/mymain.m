@@ -1,7 +1,7 @@
 clear;clc;
 %% 数据预处理
 %路径等初始化
-stationId='58606';
+stationId='59431';
 inputDataPath='..\..\stationsData\';
 resultPath=['..\..\result\RHU\' stationId '\'];
 if exist(resultPath,'dir')==0

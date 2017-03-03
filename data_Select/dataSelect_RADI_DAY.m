@@ -3,7 +3,7 @@
 %%
 clc;clear;
 %var initialization
-selectStationId=59431
+selectStationId=58367;
 inputFilePath='..\..\originalData\DAY\datasets\';
 inputFileNameHead='RADI_MUL_CHN_DAY-';
 outputFilePath=['..\..\stationsData\RADI\DAY\'];

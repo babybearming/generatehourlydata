@@ -3,7 +3,7 @@
 %%
 clc;clear;
 %var initialization
-selectStationId=54517
+selectStationId=58367
 inputFilePath='..\..\originalData\SURF_CLI_CHN_MUL_FTM_H4-dvd-5\datasets\WIN\';
 inputFileNameHead='SURF_CLI_CHN_MUL_FTM_H4-WIN-11002-';
 outputFilePath=['..\..\stationsData\WIN\' ];

@@ -3,9 +3,9 @@
 %缺测处理：先计算各站每年的文件行数，找到缺测数据进行处理
 %%正文
 clc;clear;
-selectStationId=59431;
-inputFilePath='..\..\stationsData\RADI\DAY\';
-outputFilePath='..\..\stationsData\RADI\DAY\nullDeal\';
+selectStationId=54527;
+inputFilePath='..\..\..\stationsData\RADI\DAY\';
+outputFilePath='..\..\..\stationsData\RADI\DAY\nullDeal\';
 if exist(outputFilePath,'dir')==0
     mkdir(outputFilePath);
 end

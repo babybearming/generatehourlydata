@@ -1,8 +1,8 @@
 clear;clc;
 %≥ı ºªØ
-stationId='59431';
+stationId='50953';
 inputDataPath='..\..\stationsData\RADI\DAY\nullDeal\';
-resultPath=['..\..\result\Rad\' stationId '\'];
+resultPath=['..\..\result\Rad\totalRad\' stationId '\'];
 if exist(resultPath,'dir')==0
     mkdir(resultPath);
 end

@@ -1,6 +1,6 @@
 clear;clc;
 %%  初始化
-stationId='59431';
+stationId='58606';
 inputDataPath='..\..\stationsData\';
 windSpeedResultPath=['..\..\result\windSpeed\' stationId '\'];
 if exist(windSpeedResultPath,'dir')==0
@@ -16,7 +16,7 @@ inputH4Name=[inputDataPath 'WIN\' stationId '.txt'];
 stationH4Data=dlmread(inputH4Name,' ');
 
 %数组初始化
-startYear=1951;
+startYear=1961;
 endYear=2012;
 numofYears=endYear-startYear+1;
 

@@ -1,0 +1,1 @@
+一日四次的风要素提取，需先后雨型dataSelect_WIND1.m和dataSelect_WIND2.m
