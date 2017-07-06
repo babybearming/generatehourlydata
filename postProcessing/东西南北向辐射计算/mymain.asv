@@ -1,0 +1,69 @@
+clear;clc;
+
+function mydeta=mydeta(n)
+%输入一年中的第几天
+%输出赤纬角
+mydeta=23.45*sin(360*(284+n)/365);
+end
+
+function mycosA=mycosA(sinh,lat,deta)
+%input 太阳高度角正弦值，纬度及太阳赤纬
+%output 太阳方位角余弦值
+pp=180/pi;
+mycosA=(sinh*sin(lat/pp)-sin(deta/pp))/(cos(asin(sinh))*cos(lat/pp));
+end
+
+function mysinh=mysinh(lat,deta,w)
+    %输入纬度、太阳赤纬、太阳时角
+	%计算输出太阳高度角的sin值
+	pp=180/pi;
+	mysinh=sin(lat/pp)*sin(deta/pp)+cos(lat/pp)*cos(deta/pp)*cos(w/pp);
+	end
+
+function w=mysunw(lon)
+pi=3.1415926;
+ls=120; %东八区所在经度
+w=zeros(24,365);
+for n=1:366
+    ww=2*n*pi/360;
+    e=-0.0002786409+0.1227715*cos(ww+1.498311)...
+    -0.1654575*cos(2*ww-1.261546)-0.005353830*cos(3*ww-1.1571);  %时差
+for t=0.5:23.5
+w(t+0.5,n)=(t+(lon-ls)/15.0+e/60.0-12)*15*pi/180.0;
+end
+end
+
+function [southrad,northrad,eastrad,westrad]=myFourDirRad(directrad,cosh,cosA,scarad,ih)
+%输入 直接辐射，太阳高度角余弦值，太阳方位角余弦值，散射辐射，太阳总辐射
+%输出东西南北各向太阳辐射
+
+Is=directrad*cosh*cosA+0.63*scarad+0.1*ih;
+In=directrad*cosh*cosA+0.37*scarad+0.1*ih;
+Ie=directrad*cosh*sin(acos(cosA))+0.5*scarad+0.1*ih;
+Iw=directrad*cosh*sin(acos(cosA))+0.5*scarad+0.1*ih;
+end
+
+stationInfo=[54527,39.08,117.07]; % 54527
+stationid=stationInfo(1);
+lat=stationInfo(2);
+lon=stationInfo(3);
+raddata=xlsread('rad.xlsx','54527');
+totalrad=raddata(:,1);
+scarad=raddata(:,2);
+directrad=raddata(:,3);
+
+% elements initial
+i0=1367; %太阳常数
+w=mysunw(lon); %太阳时角计算
+
+for tt=1:8760
+    ih=totalrad(tt);
+    direct=directrad(tt);
+    sca=scarad(tt);
+    n=floor((tt-1)/24+1);
+    deta=mydeta(n); %每时刻赤纬角计算
+    sinh=mysinh(lat,deta,w(tt));    %太阳高度角的正弦值
+    cosh=cos(asin(sinh)); %太阳高度角余弦值
+    cosA=mycosA(sinh,lat,deta); %太阳方位角余弦值
+    [southrad(tt),northrad(tt),eastrad,westrad]=myFourDirRad(directrad,cosh,cosA,scarad,ih);
+end
